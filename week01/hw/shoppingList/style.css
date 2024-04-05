@@ -42,6 +42,11 @@ a {
     text-decoration: none;
   }
 
+  a:hover{
+    background-color: beige;
+    color:rgb(73, 48, 0);
+  }
+
 section{
     flex: flex-end;
     margin-left: 15%;
