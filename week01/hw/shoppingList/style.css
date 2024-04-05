@@ -47,6 +47,8 @@ a {
     color:rgb(73, 48, 0);
   }
 
+  
+
 section{
     flex: flex-end;
     margin-left: 15%;
@@ -104,3 +106,18 @@ footer {
     height: 10rem;
 }
 
+/* hover 애니메이션*/
+
+@keyframes productmove{
+    0%,100%{
+        transform:scale(1.05);
+    }
+    50%{
+        transform:scale(1);
+        box-shadow: 0 0 30px rgb(243, 181, 37);
+    }
+}
+
+.product:hover{
+    animation:productmove 1.5s infinite linear;
+}
