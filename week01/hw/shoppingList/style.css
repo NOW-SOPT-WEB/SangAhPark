@@ -20,9 +20,13 @@ header {
 
 nav {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+
     top: 40%; 
     margin: 1rem;
     padding: 1.5rem;
+
     background-color: rgb(73, 48, 0);
     color: beige;
     border-radius: 0.8rem;
@@ -47,17 +51,21 @@ a {
     color:rgb(73, 48, 0);
   }
 
-  
+  main {
+    width: 75vw;
+    position: sticky;
+    left: 300px;
+    right: 300px;
 
-section{
-    flex: flex-end;
-    margin-left: 15%;
+    display: flex;
+    flex-direction: column;
 }
 
 .heart{
     width: 1rem;
     height: 1rem;
 }
+
 .product_card {
     position: relative;
 }
@@ -67,12 +75,6 @@ section{
     height: 10rem;
 }
 
-.coffee {
-    display: flex;
-    flex-wrap: wrap; /* Allow products to wrap */
-    justify-content: center; /* Center products horizontally */
-}
-
 .product_card{
     flex-wrap: wrap;
     display: flex;
@@ -80,6 +82,9 @@ section{
 }
 
 .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 0.1rem solid rgb(73, 48, 0);
     border-radius: 1rem;
     padding: 1rem;
@@ -180,3 +185,37 @@ footer {
     height: auto;
     animation: rolling 50s linear infinite;
 }
+.product_card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+
+@media screen and (max-width: 900px){
+    .product {
+        width: 12rem;
+        height: 15rem;
+    }
+    .product_img {
+        width: 12rem;
+        height: 9rem;
+    }
+    .product :first-child {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 742px) {
+    .product {
+        width: 15rem;
+        height: 20rem;
+    }
+    .product_img {
+        width: 20rem;
+        height: 17rem;
+    }
+    .product :first-child{
+        width: 250px;
+    }
+}
+
