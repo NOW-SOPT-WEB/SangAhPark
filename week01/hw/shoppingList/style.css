@@ -29,7 +29,7 @@ nav {
     z-index: 1; 
 }
 
-nav ul li {
+ul li {
     list-style: none;
 }
 
@@ -97,13 +97,13 @@ footer {
     clear: both; 
 }
 
-.banner{
+.slider{
     display: flex;
 }
 
-.banner img{
-    width: 10rem;
-    height: 10rem;
+.banner{
+    width: 8rem;
+    height: 8rem;
 }
 
 /* hover 애니메이션*/
@@ -119,5 +119,64 @@ footer {
 }
 
 .product:hover{
-    animation:productmove 1.5s infinite linear;
+    animation:productmove 5s infinite linear;
+}
+
+/*무한 배너*/
+@keyframes rolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slider .slide-track {
+    animation: rolling 20s linear infinite;
+    display: flex;
+    width: calc(100% * 14);
+}
+
+
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+
+
+.slider {
+    height: auto;
+}
+
+.slide-track {
+    height: auto;
+    animation: rolling 50s linear infinite;
 }
