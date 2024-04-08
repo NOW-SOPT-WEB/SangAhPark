@@ -3,13 +3,16 @@
     padding: 0;
 }
 
+/*헤더 구현*/
 header {
     display: flex;
     position: fixed;
+
     justify-content: space-between;
     text-align: center;
     width: 100%;
     align-items: center;
+
     background-color: rgb(73, 48, 0);
     font-size: 0.8rem;
     padding-left: 1rem;
@@ -18,14 +21,24 @@ header {
     z-index: 1; 
 }
 
+.header_img{
+    width: 3.rem;
+    height: 4rem;
+    margin-right: 2rem;
+}
+/*메뉴바 구현*/
 nav {
     position: fixed;
     display: flex;
     flex-direction: column;
 
-    top: 40%; 
+    top: 35%; 
     margin: 1rem;
     padding: 1.5rem;
+
+    width: 7rem;
+    height: 8rem;
+    font-size: 1.1rem;
 
     background-color: rgb(73, 48, 0);
     color: beige;
@@ -37,6 +50,7 @@ ul li {
     list-style: none;
 }
 
+/*메뉴바  hover 구현*/
 a {
     text-decoration-line: none;
   }
@@ -51,34 +65,34 @@ a {
     color:rgb(73, 48, 0);
   }
 
+/*메인 섹션 구현*/  
   main {
-    width: 75vw;
-    position: sticky;
-    left: 300px;
-    right: 300px;
+
+    padding-left: 15vw;
+    padding-right: 15vw;
 
     display: flex;
     flex-direction: column;
+
 }
 
-.heart{
-    width: 1rem;
-    height: 1rem;
+.menu_title {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
+/*상품 섹션 구현*/  
 .product_card {
-    position: relative;
-}
-
-.product_img{
-    width: 10rem;
-    height: 10rem;
-}
-
-.product_card{
     flex-wrap: wrap;
     display: flex;
     position: relative;
+    
+}
+
+.product_img{
+    padding-bottom: 1rem; 
+    width: 10rem;
+    height: 10rem;
 }
 
 .product {
@@ -92,7 +106,15 @@ a {
     text-align: center;
 }
 
+.heart{
+    width: 1rem;
+    height: 1rem;
+}
+
+/*푸터 구현*/ 
+
 footer {
+    margin-top: 2rem;
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -102,16 +124,12 @@ footer {
     clear: both; 
 }
 
-.slider{
-    display: flex;
-}
-
 .banner{
-    width: 8rem;
-    height: 8rem;
+    width: 10rem;
+    height: 10rem;
 }
 
-/* hover 애니메이션*/
+/*상품 hover 시 애니메이션*/
 
 @keyframes productmove{
     0%,100%{
@@ -143,79 +161,49 @@ footer {
     width: calc(100% * 14);
 }
 
-
 .slider {
+    display: flex;
+    padding-top: 4.5rem;
     background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 100px;
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.1);
+    height: auto;
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 960px;
+    width: 1200px;
 }
 
+/*무한 배너 양끝 흐리게*/
 .slider::before,
 .slider::after {
     background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
     content: "";
-    height: 100px;
+    height: 8rem;
     position: absolute;
-    width: 200px;
+    width: 5rem;
     z-index: 2;
 }
 
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-
-
-.slider {
-    height: auto;
-}
-
-.slide-track {
-    height: auto;
-    animation: rolling 50s linear infinite;
-}
-.product_card {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
-}
-
-@media screen and (max-width: 900px){
+/*반응형*/
+@media screen and (max-width: 1200px){
     .product {
-        width: 12rem;
-        height: 15rem;
+        width: 14rem;
+        height: 17rem;
     }
     .product_img {
-        width: 12rem;
-        height: 9rem;
-    }
-    .product :first-child {
-        width: 200px;
+        width: 13rem;
+        height: 16rem;
     }
 }
 
-@media screen and (max-width: 742px) {
+@media screen and (max-width: 768px) {
     .product {
-        width: 15rem;
+        width: 18rem;
         height: 20rem;
     }
     .product_img {
-        width: 20rem;
-        height: 17rem;
-    }
-    .product :first-child{
-        width: 250px;
+        width: 15rem;
+        height: 18rem;
     }
 }
 
