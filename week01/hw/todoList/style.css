@@ -4,6 +4,8 @@
     }
     50% {
       transform: scale(1.05);
+      transition: 1s;
+      animation-timing-function: cubic-bezier(1,1,1,1); /*cubic-bezier-curve(x1,y1,x2,y2*/
     }
     100% {
       transform: scale(1);
@@ -16,9 +18,6 @@
     src : url(nanumsquare.ttf)
 }
 
-.item {
-    animation: animate 1s step-end infinite;
-  }
 
 body{
     font-family: Georgia, 'Times New Roman';
@@ -84,6 +83,8 @@ li {
 
     /* 목록 앞에 붙은 점 없애기 */
     list-style-type: none; 
+
+    animation: animate 1s step-end infinite;
 }
 
 li span{
@@ -93,7 +94,6 @@ li span{
     white-space: nowrap; /*줄바꿈 없앰*/
 
     text-overflow: ellipsis;
-    -webkit-line-clamp: 1;
 }
 
 li button{
