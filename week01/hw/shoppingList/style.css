@@ -106,9 +106,14 @@ a {
     text-align: center;
 }
 
-.heart{
-    width: 1rem;
-    height: 1rem;
+.fa-heart{
+    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    color:rgb(73, 48, 0);
+}
+
+.fa-heart:hover{
+    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    color:red;
 }
 
 /*푸터 구현*/ 
