@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    /*스크롤 부드럽게*/
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: rgb(255, 248, 236);
+}
+
+/*헤더 구현*/
+.site_header {
+    display: flex;
+    position: fixed;
+
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+
+    background-color: rgb(73, 48, 0);
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: rgb(255, 248, 236);
+    z-index: 1; 
+}
+
+.siteHeader_img{
+    width: 3.5rem;
+    height: 4rem;
+    margin-right: 2rem;
+}
+
+/*메뉴바 구현*/
+.menu_nav {
+    position: fixed;
+
+    top: 35%; 
+    margin: 1rem;
+    padding: 1.5rem;
+
+    width: 7rem;
+    height: 8rem;
+    font-size: 1.1rem;
+
+    background-color: rgb(73, 48, 0);
+    color: rgb(255, 248, 236);
+    border-radius: 0.8rem;
+    z-index: 1; 
+}
+
+ul li {
+    list-style: none;
+}
+
+/*메뉴바  hover 구현*/
+a{
+    text-decoration-line: none;
+}
+
+a:visited {
+    color : rgb(250, 250, 207);
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: rgb(255, 248, 236);
+    color:rgb(73, 48, 0);
+}
+
+/*메인 섹션 구현*/  
+main {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 8rem;
+    padding: 0rem 2rem 3rem 5rem;
+}
+
+.menu_title {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.menu_section{
+    scroll-margin-top: 3rem;
+}
+
+/*상품 섹션 구현*/  
+.product_card {
+    flex-wrap: wrap;
+    display: flex;
+    position: relative;
+}
+
+.product_img{
+    padding-bottom: 1rem; 
+    width: 10rem;
+    height: 10rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.1rem solid rgb(73, 48, 0);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.2rem;
+    text-align: center;
+}
+
+.fa-heart{
+    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    color:rgb(73, 48, 0);
+}
+
+.fa-heart:hover{
+    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    color:red;
+}
+
+/*푸터 구현*/ 
+
+footer {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73, 48, 0);
+    color: rgb(255, 248, 236);
+    clear: both; 
+}
+
+.banner{
+    width: 10rem;
+    height: 10rem;
+}
+
+/*상품 hover 시 애니메이션*/
+
+@keyframes productmove{
+    0%,100%{
+        transform:scale(1.05);
+    }
+    50%{
+        transform:scale(1);
+        box-shadow: 0 0 30px rgb(243, 181, 37);
+    }
+}
+
+.product:hover{
+    animation:productmove 5s infinite linear;
+}
+
+/*무한 배너*/
+@keyframes rolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slider .slide-track {
+    animation: rolling 20s linear infinite;
+    display: flex;
+    width: calc(100% * 14);
+}
+
+.slider {
+    display: flex;
+    padding-top: 4.5rem;
+    background: white;
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.1);
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 1200px;
+}
+
+/*무한 배너 양끝 흐리게*/
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 8rem;
+    position: absolute;
+    width: 5rem;
+    z-index: 2;
+}
+
+/*반응형*/
+@media screen and (max-width: 1200px){
+    .product {
+        width: 14rem;
+        height: 17rem;
+    }
+    .product_img {
+        width: 13rem;
+        height: 16rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product {
+        width: 18rem;
+        height: 20rem;
+    }
+    .product_img {
+        width: 15rem;
+        height: 18rem;
+    }
+}
+
