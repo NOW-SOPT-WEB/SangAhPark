@@ -37,8 +37,6 @@ body{
 /*메뉴바 구현*/
 .menu_nav {
     position: fixed;
-    display: flex;
-    flex-direction: column;
 
     top: 35%; 
     margin: 1rem;
@@ -59,7 +57,7 @@ ul li {
 }
 
 /*메뉴바  hover 구현*/
-a {
+a{
     text-decoration-line: none;
 }
 
@@ -75,11 +73,11 @@ a:hover{
 
 /*메인 섹션 구현*/  
 main {
-    padding-left: 15vw;
-    padding-right: 15vw;
-
     display: flex;
     flex-direction: column;
+
+    margin-left: 8rem;
+    padding: 0rem 2rem 3rem 5rem;
 }
 
 .menu_title {
