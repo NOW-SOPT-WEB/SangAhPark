@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/week02/hw/styles/home.css"/>
+    <link rel="stylesheet" href="/week02/hw/styles/modal.css"/> 
     <title>Welcome to Ivoryeee's Cafe</title>
     <script 
     src="https://use.fontawesome.com/releases/v6.5.2/js/all.js">
@@ -13,17 +14,27 @@
     <header class="site_header">
         <img src="/week02/hw/assets/img/cafe.png" class="siteHeader_img" alt="페이지 로고"/>
         <h1>Ivoryeee's Cafe</h1>
-        <img src="/week02/hw/assets/img/navBar.png" class="siteHeader_img" alt="햄버거바"/>
+        <img src="/week02/hw/assets/img/navBar.png" class="siteHeader_img" id="open_modal" alt="햄버거바"/>
     </header>
     <nav class="menu_nav">
         <h2>Menu</h2>
-        <ul>
+        <ul class="menu_nav_ul">
             <li><a href="#all">All</a></li>
             <li><a href="#coffee">Coffee</a></li>
             <li><a href="#beverage">Beverage</a></li>
             <li><a href="#dessert">Dessert</a></li>
         </ul>
     </nav>
+    <aside class="modal hidden">
+        <div id="close_modal">        
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+        <ul>
+            <li>관심상품 보기</li>
+            <li><a href="cart.html">장바구니</a></li>
+            <li>관리자</li>
+        </ul>
+    </aside>
     <main>
         <section class="slider">
             <ul class="slide-track n1">
@@ -344,4 +355,6 @@
         <li>♡SOPT 웨비들에게는 평생 무료♡</li>
     </footer>
 </body>
+<script src="/week02/hw/feature/modal.js"></script>
+
 </html>
