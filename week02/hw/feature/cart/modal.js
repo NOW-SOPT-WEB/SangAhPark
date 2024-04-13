@@ -75,3 +75,29 @@ function showTotalPrice(products) {
   const modalContent = document.querySelector(".modal");
   modalContent.appendChild(totalPriceElement);
 }
+
+function toggleAllCheckboxes(checked) {
+  const allCheckboxes = document.querySelectorAll(
+    '.item_table input[type="checkbox"]'
+  );
+  allCheckboxes.forEach((checkbox) => {
+    checkbox.checked = checked;
+  });
+}
+
+const selectAllCheckbox = document.getElementById("selectAllCheckbox");
+selectAllCheckbox.addEventListener("change", function () {
+  toggleAllCheckboxes(this.checked);
+});
+
+// const checkboxChecked = document.querySelectorAll('input[type="checkbox"]');
+
+// checkboxChecked.forEach(function (checkbox) {
+//   checkbox.addEventListener("change", function () {
+//     if (this.checked) {
+//       console.log(this.id + "이(가) 체크됨");
+//     } else {
+//       console.log(this.id + "이(가) 체크 해제됨");
+//     }
+//   });
+// });
