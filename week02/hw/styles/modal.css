@@ -6,11 +6,17 @@
     padding: 1rem 0 0 1rem;
 
     position:fixed;
-    right: 0;
+    right: 0%;
 
     background-color: rgb(73, 48, 0);
     color: rgb(255, 248, 236);
     z-index: 1; 
+
+    transition: right 1s ease;
+}
+
+.modal.hidden {
+    right: -100%
 }
 
 #open_modal{
@@ -36,6 +42,3 @@
     color:  rgb(73, 48, 0);
 }
 
-.hidden {
-    display: none;
-}
