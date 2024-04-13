@@ -115,12 +115,12 @@ main {
 }
 
 .fa-heart{
-    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    background: url("/week02/hw/assets/icon/heart.svg");
     color:rgb(73, 48, 0);
 }
 
 .fa-heart:hover{
-    background: url("/week01/hw/shoppingList/assets/icon/heart.svg");
+    background: url("/week02/hw/assets/icon/heart.svg");
     color:red;
 }
 
