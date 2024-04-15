@@ -14,9 +14,6 @@ showProducts(allProducts);
 
 // 상품 카드 생성
 function createProductCard(name, imageUrl, value) {
-  const productCard = document.createElement("div");
-  productCard.classList.add("product_card");
-
   const productInfo = document.createElement("ul");
   productInfo.classList.add("product");
 
@@ -40,14 +37,12 @@ function createProductCard(name, imageUrl, value) {
   productInfo.appendChild(productName);
   productInfo.appendChild(productvalue);
 
-  productCard.appendChild(productInfo);
-
-  return productCard;
+  return productInfo;
 }
 
 // 상품 목록을 보여주는 함수
 function showProducts(products) {
-  const resultContainer = document.querySelector(".menu_section");
+  const resultContainer = document.querySelector(".product_card");
   resultContainer.innerHTML = "";
 
   products.forEach((product) => {
