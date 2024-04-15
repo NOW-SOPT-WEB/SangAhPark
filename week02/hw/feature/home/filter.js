@@ -63,9 +63,14 @@ const navLists = document.querySelectorAll(".menu_nav_li");
 navLists.forEach((navList) => {
   navList.addEventListener("click", function (event) {
     const clickedCategory = event.target.textContent.toLowerCase();
-    const filteredProducts = shoppingListData.filter(
-      (product) => product.category.toLowerCase() === clickedCategory
-    );
-    showProducts(filteredProducts);
+    if (clickedCategory == "all") {
+      const filteredProducts = allProducts;
+      showProducts(filteredProducts);
+    } else {
+      const filteredProducts = shoppingListData.filter(
+        (product) => product.category.toLowerCase() === clickedCategory
+      );
+      showProducts(filteredProducts);
+    }
   });
 });
