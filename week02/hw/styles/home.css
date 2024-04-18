@@ -97,6 +97,12 @@ main {
     position: relative;
 }
 
+.product_section{
+    flex-wrap: wrap;
+    display: flex;
+    position: relative;
+}
+
 .product_img{
     padding-bottom: 1rem; 
     width: 10rem;

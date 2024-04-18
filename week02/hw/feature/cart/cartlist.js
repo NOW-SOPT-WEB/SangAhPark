@@ -35,7 +35,7 @@ function makeTable(id, img, name, price, category) {
   itemName.textContent = name;
 
   const itemPrice = document.createElement("td");
-  itemPrice.textContent = price.toLocaleString() + "원";
+  itemPrice.textContent = price + "원";
 
   const itemCategory = document.createElement("td");
   itemCategory.textContent = category;
