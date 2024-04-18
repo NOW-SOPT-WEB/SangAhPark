@@ -21,8 +21,8 @@ function makeTable(id, img, name, price, category) {
   const itemCheckTd = document.createElement("td");
   const itemCheck = document.createElement("input");
   itemCheck.type = "checkbox";
-  itemCheck.classList.add("checkedBox");
-  itemCheck.dataset.index = id;
+  itemCheck.dataset = id;
+  itemCheck.dataindex = id;
   itemCheckTd.appendChild(itemCheck);
 
   const itemImgTd = document.createElement("td");
