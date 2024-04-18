@@ -1,0 +1,107 @@
+  @keyframes animate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+      transition: 1s;
+      animation-timing-function: cubic-bezier(1,1,1,1); /*cubic-bezier-curve(x1,y1,x2,y2*/
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+  
+
+@font-face {
+    font-family : 'nanum';
+    src : url(nanumsquare.ttf)
+}
+
+
+body{
+    font-family: Georgia, 'Times New Roman';
+    background-image: linear-gradient(to left, rgb(129, 175, 254), rgb(255, 255, 255));
+}
+
+header{
+    text-align: center;
+}
+
+h1 {
+    color:rgb(6, 0, 64);
+}
+
+.input_section{
+    text-align: center;
+}
+
+input{
+    border: 1px solid black;
+    width: 15rem;
+    height: 2rem;
+    border-radius: 5rem;
+    font-size:1.2rem;
+    background-color: white;
+    margin-bottom: 1rem;
+}
+
+.input_button{
+    border: 1px solid black;
+    border-radius: 3rem;
+    border-color: none;
+    width: 3rem;
+    height: 2.5rem;
+    color:white;
+    background-color: rgb(139, 144, 173);
+}
+
+.todo_section{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.todo_section h2{
+    text-align: center;
+    color:rgb(6, 0, 64);
+}
+
+li {
+   /* 리스트 크기 및 정렬 */
+    width: 15rem;
+    height: 1.9rem;
+    align-items: center;
+
+   /* 리스트간 간격 */    
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+
+   /* 리스트 박스 스타일 */    
+    border-radius: 5rem;
+    font-size:1.2rem;
+    background-color: white;
+
+    /* 목록 앞에 붙은 점 없애기 */
+    list-style-type: none; 
+
+    animation: animate 1s step-end infinite;
+}
+
+li span{
+    display: inline-block;
+    width: 12rem;
+    overflow: hidden;
+    white-space: nowrap; /*줄바꿈 없앰*/
+
+    text-overflow: ellipsis;
+}
+
+li button{
+    border-radius: 15px; /*버튼 동그랗게*/
+    color:white;
+    background-color: black;
+    float:right;
+    margin-top: 0.3rem;
+    margin-right: 0.8rem;
+    shape-outside: border-box;
+}
