@@ -21,14 +21,6 @@ document
       let rowIndex = checkbox.closest("tr").rowIndex - 1;
       if (checkbox.checked) {
         console.log("row index:", rowIndex);
-        // let rowData = [];
-        // checkbox
-        //   .closest("tr")
-        //   .querySelectorAll("td")
-        //   .forEach((cell) => {
-        //     rowData.push(cell.textContent);
-        //   });
-        // console.log("Checked row data:", rowData);
       } else {
         console.log("Unchecked");
       }

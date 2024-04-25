@@ -4,9 +4,6 @@ const storedData = localStorage.getItem("cartItem");
 if (storedData) {
   const cartItemsArray = JSON.parse(storedData);
   showProducts(cartItemsArray);
-  // cartItemsArray.forEach((data) => {
-  //     console.log(data);
-  // });
 } else {
   console.log("로컬스토리지에 데이터가 없습니다.");
 }
