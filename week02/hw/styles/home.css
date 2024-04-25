@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-
+    
     /*스크롤 부드럽게*/
     scroll-behavior: smooth;
 }
@@ -13,24 +13,31 @@ body{
 /*헤더 구현*/
 .site_header {
     display: flex;
+
     position: fixed;
+
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     justify-content: space-between;
     text-align: center;
-    width: 100%;
-    align-items: center;
 
     background-color: rgb(73, 48, 0);
-    font-size: 0.8rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
     color: rgb(255, 248, 236);
+
+    font-size: 0.8rem;
+
+    align-items: center;
+
     z-index: 1; 
 }
 
 .siteHeader_img{
     width: 3.5rem;
     height: 4rem;
+
     margin-right: 2rem;
 }
 
@@ -46,9 +53,11 @@ body{
     height: 8rem;
     font-size: 1.1rem;
 
+    border-radius: 0.8rem;
+
     background-color: rgb(73, 48, 0);
     color: rgb(255, 248, 236);
-    border-radius: 0.8rem;
+
     z-index: 1; 
 }
 
@@ -92,31 +101,38 @@ main {
 
 /*상품 섹션 구현*/  
 .product_card {
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
+
     position: relative;
 }
 
 .product_section{
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
+
     position: relative;
 }
 
 .product_img{
-    padding-bottom: 1rem; 
     width: 10rem;
     height: 10rem;
+
+    padding-bottom: 1rem; 
 }
 
 .product {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 0.1rem solid rgb(73, 48, 0);
-    border-radius: 1rem;
+
     padding: 1rem;
     margin: 0.2rem;
+
+
+    border: 0.1rem solid rgb(73, 48, 0);
+    border-radius: 1rem;
+
+    align-items: center;
     text-align: center;
 }
 
@@ -133,13 +149,17 @@ main {
 /*푸터 구현*/ 
 
 footer {
+    display: flex;
+
     margin-top: 2rem;
     padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     background-color: rgb(73, 48, 0);
     color: rgb(255, 248, 236);
+
+    justify-content: center;
+    align-items: center;
+
     clear: both; 
 }
 
@@ -175,32 +195,44 @@ footer {
 }
 
 .slider .slide-track {
-    animation: rolling 20s linear infinite;
     display: flex;
+ 
     width: calc(100% * 14);
+
+    animation: rolling 20s linear infinite;
+
 }
 
 .slider {
     display: flex;
+
+    position: relative;
+
+    height: auto;
+    width: 1200px;
+
     padding-top: 4.5rem;
+    margin: auto;
+
     background: white;
     box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.1);
-    height: auto;
-    margin: auto;
+
     overflow: hidden;
-    position: relative;
-    width: 1200px;
 }
 
 /*무한 배너 양끝 흐리게*/
 .slider::before,
 .slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 8rem;
     position: absolute;
-    width: 5rem;
     z-index: 2;
+
+    width: 5rem;
+    height: 8rem;
+
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+
+    content: "";
+
 }
 
 /*반응형*/
