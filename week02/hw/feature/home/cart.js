@@ -62,6 +62,4 @@ navCart.addEventListener("click", () => {
   window.location.href = "../pages/cart.html";
 });
 
-window.addEventListener("DOMContentLoaded", function () {
-  addProductAlert();
-});
+addProductAlert();
