@@ -1,4 +1,4 @@
-export var SHOPPING_LIST = [
+export const SHOPPING_LIST = [
   {
     id: 1,
     category: "coffee",
