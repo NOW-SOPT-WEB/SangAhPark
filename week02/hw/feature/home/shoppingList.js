@@ -84,5 +84,3 @@ export const SHOPPING_LIST = [
     imageUrl: "/week02/hw/assets/img/sandwich.png",
   },
 ];
-
-//localStorage.setItem("menuList", JSON.stringfy(SHOPPING_LIST));
