@@ -71,3 +71,12 @@ function showProducts(products) {
     }
   });
 }
+
+// home으로 이동
+const homeButton = document.getElementsByName("home_button");
+
+homeButton.forEach((element) =>
+  element.addEventListener("click", () => {
+    window.location.href = "../pages/home.html";
+  })
+);
