@@ -2,6 +2,7 @@ import { CARD_LIST } from "./../constants/cardList";
 import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
 import dummyImage from "../../public/img/sanrio.jpg";
+import SuccessModal from "./SuccessModal";
 
 const getRandomCards = () => {
   const shuffledCards = [...CARD_LIST].sort(() => Math.random() - 0.5);
@@ -16,6 +17,7 @@ const Card = () => {
   );
   const [selectedIndexes, setSelectedIndexes] = useState([]);
   const [matchedIndexes, setMatchedIndexes] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const flipBackCards = () => {
@@ -63,24 +65,33 @@ const Card = () => {
     setCards(newCards);
     setSelectedIndexes([]);
     setMatchedIndexes([]);
+    setShowModal(false);
   };
 
   useEffect(() => {
     if (matchedIndexes.length === cards.length) {
       //모든 카드를 맞춘 경우
-      resetGame();
+      console.log("축하합니다!");
+      setShowModal(true);
+      /* 
+      resetGame(); */
     }
   }, [matchedIndexes, cards.length]);
 
-  return cards.map((card, index) => (
-    <CardWrapper key={index} onClick={() => handleCardClick(index)}>
-      <CardImg
-        src={card.flipped ? card.imgSrc : dummyImage}
-        alt={card.imgAlt}
-        flipped={card.flipped}
-      ></CardImg>
-    </CardWrapper>
-  ));
+  return (
+    <>
+      {cards.map((card, index) => (
+        <CardWrapper key={index} onClick={() => handleCardClick(index)}>
+          <CardImg
+            src={card.flipped ? card.imgSrc : dummyImage}
+            alt={card.imgAlt}
+            flipped={card.flipped}
+          ></CardImg>
+        </CardWrapper>
+      ))}
+      {showModal && <SuccessModal resetGame={resetGame} />}
+    </>
+  );
 };
 
 export default Card;
