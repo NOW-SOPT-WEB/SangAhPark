@@ -1,47 +1,47 @@
 export const CARD_LIST = [
   {
     id: 1,
-    imgSrc: "../assets/img/hellokitty.jpeg",
+    imgSrc: "../../public/img/hellokitty.jpeg",
     imgAlt: "헬로키티",
   },
   {
     id: 2,
-    imgSrc: "../assets/img/mymelody.jpeg",
+    imgSrc: "../../public/img/mymelody.jpeg",
     imgAlt: "마이멜로디",
   },
   {
     id: 3,
-    imgSrc: "../assets/img/kuromi.jpeg",
+    imgSrc: "../../public/img/kuromi.jpeg",
     imgAlt: "쿠로미",
   },
   {
     id: 4,
-    imgSrc: "../assets/img/pochacco.jpeg",
+    imgSrc: "../../public/img/pochacco.jpeg",
     imgAlt: "포차코",
   },
   {
     id: 5,
-    imgSrc: "../assets/img/pompompurin.jpeg",
+    imgSrc: "../../public/img/pompompurin.jpeg",
     imgAlt: "푸린",
   },
-  {
+  /*  {
     id: 6,
-    imgSrc: "../assets/img/cinnamoroll.jpeg",
+    imgSrc: "../../public/img/cinnamoroll.jpeg",
     imgAlt: "시나모롤",
   },
   {
     id: 7,
-    imgSrc: "../assets/img/leo.jpeg",
+    imgSrc: "../../public/img/leo.jpeg",
     imgAlt: "레오",
   },
   {
     id: 8,
-    imgSrc: "../assets/img/badtzmaru.jpeg",
+    imgSrc: "../../public/img/badtzmaru.jpeg",
     imgAlt: "바츠마루",
   },
   {
     id: 9,
-    imgSrc: "../assets/img/keroppi.jpeg",
+    imgSrc: "../../public/img/keroppi.jpeg",
     imgAlt: "케로피",
-  },
+  },*/
 ];
