@@ -24,7 +24,7 @@ export const CARD_LIST = [
     imgSrc: "../../public/img/pompompurin.jpeg",
     imgAlt: "푸린",
   },
-  /*  {
+  {
     id: 6,
     imgSrc: "../../public/img/cinnamoroll.jpeg",
     imgAlt: "시나모롤",
@@ -43,5 +43,5 @@ export const CARD_LIST = [
     id: 9,
     imgSrc: "../../public/img/keroppi.jpeg",
     imgAlt: "케로피",
-  },*/
+  },
 ];
