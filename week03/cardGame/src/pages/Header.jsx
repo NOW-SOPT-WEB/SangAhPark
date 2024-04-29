@@ -54,10 +54,12 @@ const Title = styled.div`
   justify-content: center;
   align-items: center;
 
+  font-family: DNFBitBit;
   font-size: 4rem;
 `;
 
 const Score = styled.p`
+  font-family: DNFBitBit;
   font-size: 1.5rem;
 `;
 
@@ -70,11 +72,16 @@ const LevelButtons = styled.div`
 const LevelButton = styled.button`
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
+
+  font-family: DNFBitBit;
   font-size: 1rem;
+
   background-color: ${({ selected }) => (selected ? "pink" : "transparent")};
   color: ${({ selected }) => (selected ? "white" : "black")};
+
   border: 2px solid pink;
   border-radius: 5px;
+
   cursor: pointer;
   outline: none;
   &:hover {

@@ -53,6 +53,7 @@ const ModalTitle = styled.div`
 
   color: white;
   font-size: 2rem;
+  font-family: DNFBitBit;
 
   justify-content: center;
   align-items: center;
@@ -72,6 +73,7 @@ const ModalButton = styled.button`
   align-items: center;
 
   font-size: 1rem;
+  font-family: DNFBitBit;
 
   color: pink;
   border-radius: 1rem;
