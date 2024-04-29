@@ -13,6 +13,7 @@ const Header = () => {
     <div>
       <HeaderWrapper>
         <Title>카드 맞추기</Title>
+        <Score> SCORE : </Score>
       </HeaderWrapper>
 
       <LevelButtons>
@@ -46,12 +47,18 @@ const HeaderWrapper = styled.header`
 const Title = styled.div`
   display: flex;
 
-  height: 10rem;
+  padding-top: 2rem;
+
+  height: 4rem;
 
   justify-content: center;
   align-items: center;
 
   font-size: 4rem;
+`;
+
+const Score = styled.p`
+  font-size: 1.5rem;
 `;
 
 const LevelButtons = styled.div`

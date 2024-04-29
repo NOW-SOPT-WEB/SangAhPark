@@ -15,12 +15,13 @@ const Card = () => {
     getRandomCards().map((card) => ({ ...card, flipped: false }))
   );
   const [selectedIndexes, setSelectedIndexes] = useState([]);
+  const [matchedIndexes, setMatchedIndexes] = useState([]);
 
   useEffect(() => {
     const flipBackCards = () => {
       const updatedCards = cards.map((card, index) => ({
         ...card,
-        flipped: false,
+        flipped: matchedIndexes.includes(index) ? true : false,
       }));
       setCards(updatedCards);
       setSelectedIndexes([]);
@@ -30,33 +31,46 @@ const Card = () => {
       const firstIndex = selectedIndexes[0];
       const secondIndex = selectedIndexes[1];
       if (cards[firstIndex].imgSrc !== cards[secondIndex].imgSrc) {
-        console.log("First card" + cards[firstIndex].imgSrc);
-        console.log("Seconde card" + cards[secondIndex].imgSrc);
-        console.log("different card");
         setTimeout(() => {
           flipBackCards();
-        }, 1000);
+        }, 1000); // 두 카드가 다를 경우 1초 뒤에 카드 뒤집기
       } else {
-        console.log("First card" + cards[firstIndex].imgSrc);
-        console.log("Seconde card" + cards[secondIndex].imgSrc);
-
-        console.log("same card");
+        setMatchedIndexes([...matchedIndexes, firstIndex, secondIndex]);
         setSelectedIndexes([]);
       }
     }
-  }, [cards, selectedIndexes]);
+  }, [cards, selectedIndexes, matchedIndexes]);
 
   const handleCardClick = (index) => {
-    if (selectedIndexes.length < 2 && !selectedIndexes.includes(index)) {
+    if (
+      selectedIndexes.length < 2 &&
+      !selectedIndexes.includes(index) &&
+      !matchedIndexes.includes(index)
+    ) {
       const updatedCards = cards.map((card, i) =>
         i === index ? { ...card, flipped: true } : card
       );
-      /*       const updatedCards = [...cards];
-      updatedCards[index].flipped = !updatedCards[index].flipped;
- */ setCards(updatedCards);
+      setCards(updatedCards);
       setSelectedIndexes([...selectedIndexes, index]);
     }
   };
+
+  const resetGame = () => {
+    const newCards = getRandomCards().map((card, index) => ({
+      ...card,
+      flipped: false,
+    }));
+    setCards(newCards);
+    setSelectedIndexes([]);
+    setMatchedIndexes([]);
+  };
+
+  useEffect(() => {
+    if (matchedIndexes.length === cards.length) {
+      //모든 카드를 맞춘 경우
+      resetGame();
+    }
+  }, [matchedIndexes, cards.length]);
 
   return cards.map((card, index) => (
     <CardWrapper key={index} onClick={() => handleCardClick(index)}>
@@ -74,9 +88,7 @@ export default Card;
 const CardWrapper = styled.div`
   width: 10rem;
   height: 10rem;
-
   margin: 0.5rem;
-
   border: solid pink 0.3rem;
   border-radius: 0.5rem;
 `;
