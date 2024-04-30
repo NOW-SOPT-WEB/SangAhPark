@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 function Home() {
   return (
     <div>
-      <Header />
+      {/*       <Header /> */}
       <CardWrapper>
         <Card />
       </CardWrapper>

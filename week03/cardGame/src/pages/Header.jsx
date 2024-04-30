@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
+  const { score } = props;
   const [selectedLevel, setSelectedLevel] = useState("easy");
   const levels = ["easy", "normal", "hard"];
 
@@ -13,7 +14,7 @@ const Header = () => {
     <div>
       <HeaderWrapper>
         <Title>카드 맞추기</Title>
-        <Score> SCORE : </Score>
+        <Score> SCORE : {score}</Score>
       </HeaderWrapper>
 
       <LevelButtons>
@@ -37,7 +38,7 @@ const HeaderWrapper = styled.header`
   diplay: flex;
   align-items: center;
 
-  width: 100%;
+  width: 100rem;
   height: 10rem;
 
   color: white;
