@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import dummyImage from "../../public/img/sanrio.jpg";
 import SuccessModal from "./SuccessModal";
 import Header from "./../pages/Header";
+import Reset from "../components/Reset";
 import SetLevels from "./SetLevels";
 
 const getRandomCards = (cardNum) => {
@@ -81,6 +82,8 @@ const Card = () => {
   return (
     <>
       <Header score={score} cardNum={cards.length} />
+      <Reset resetGame={resetGame} />
+
       <SetLevels
         onLeavelSelect={(cardNum) => {
           const newCards = getRandomCards(cardNum);
