@@ -129,13 +129,12 @@ const CardWrapper = styled.div`
   border-radius: 0.5rem;
   cursor: pointer;
   transition: transform 0.5s;
-  perspective: 1000px;
 `;
 
 const CardImg = styled.img`
   width: 12rem;
   height: 12rem;
   transition: transform 0.3s ease;
-  transform-style: ;
+  transform-style: preserve-3d;
   ${({ flipped }) => flipped && "transform: rotateY(180deg);"}
 `;
