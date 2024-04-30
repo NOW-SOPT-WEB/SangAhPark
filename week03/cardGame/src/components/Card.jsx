@@ -111,8 +111,8 @@ const Card = () => {
 export default Card;
 
 const CardWrapper = styled.div`
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   margin: 0.5rem;
   border: solid pink 0.3rem;
   border-radius: 0.5rem;
@@ -120,8 +120,8 @@ const CardWrapper = styled.div`
 `;
 
 const CardImg = styled.img`
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
   transition: transform 0.3s ease;
   transform-style: preserve-3d;
   ${({ flipped }) => flipped && "transform: rotateY(180deg);"}
