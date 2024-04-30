@@ -1,12 +1,17 @@
 import styled from "@emotion/styled";
+import { useTheme } from "@emotion/react";
 
 const Reset = ({ resetGame }) => {
+  const theme = useTheme();
+
   const handleReset = () => {
     resetGame();
   };
   return (
     <>
-      <ResetButton onClick={handleReset}>Reset</ResetButton>
+      <ResetButton theme={theme} onClick={handleReset}>
+        Reset
+      </ResetButton>
     </>
   );
 };
@@ -22,10 +27,10 @@ const ResetButton = styled.button`
   top: 10%;
   right: 5%;
 
-  background-color: white;
-  color: pink;
+  background-color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.background};
 
-  border: 2px solid pink;
+  border: 2px solid ${(props) => props.theme.colors.background};
   border-radius: 5px;
 
   justify-content: center;
