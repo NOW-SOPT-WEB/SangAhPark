@@ -1,11 +1,9 @@
-import Header from "./Header";
 import Card from "../components/Card";
 import styled from "@emotion/styled";
 
 function Home() {
   return (
     <div>
-      {/*       <Header /> */}
       <CardWrapper>
         <Card />
       </CardWrapper>
