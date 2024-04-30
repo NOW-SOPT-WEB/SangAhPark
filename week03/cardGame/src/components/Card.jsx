@@ -20,9 +20,10 @@ const Card = () => {
   const [matchedIndexes, setMatchedIndexes] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
+  const [clickedIndexes, setClickedIndexes] = useState([]);
 
   useEffect(() => {
-    const newCards = getRandomCards(5); // 초기에는 쉬운 단계로 시작
+    const newCards = getRandomCards(5);
     setCards(newCards);
   }, []);
 
@@ -41,6 +42,7 @@ const Card = () => {
       );
       setCards(updatedCards);
       setSelectedIndexes([...selectedIndexes, index]);
+      setClickedIndexes([...clickedIndexes, index]);
     }
   };
 
@@ -59,7 +61,7 @@ const Card = () => {
             setSelectedIndexes([]);
           };
           flipBackCards();
-        }, 1000); // 두 카드가 다를 경우 1초 뒤에 카드 뒤집기
+        }, 1000);
       } else {
         setMatchedIndexes([...matchedIndexes, firstIndex, secondIndex]);
         setSelectedIndexes([]);
@@ -75,7 +77,7 @@ const Card = () => {
   }, [matchedIndexes, cards.length]);
 
   const resetGame = () => {
-    const newCards = getRandomCards(5); // 게임 리셋 후 다시 쉬운 단계로 시작
+    const newCards = getRandomCards(5);
     setCards(newCards);
     setSelectedIndexes([]);
     setMatchedIndexes([]);
@@ -95,7 +97,15 @@ const Card = () => {
         }}
       />
       {cards.map((card, index) => (
-        <CardWrapper key={index} onClick={() => handleCardClick(index)}>
+        <CardWrapper
+          key={index}
+          onClick={() => handleCardClick(index)}
+          style={{
+            transform: clickedIndexes.includes(index)
+              ? "rotateY(180deg)"
+              : "none",
+          }}
+        >
           <CardImg
             src={card.flipped ? card.imgSrc : dummyImage}
             alt={card.imgAlt}
@@ -111,18 +121,21 @@ const Card = () => {
 export default Card;
 
 const CardWrapper = styled.div`
+  position: relative;
   width: 12rem;
   height: 12rem;
   margin: 0.5rem;
   border: solid pink 0.3rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: transform 0.5s;
+  perspective: 1000px;
 `;
 
 const CardImg = styled.img`
   width: 12rem;
   height: 12rem;
   transition: transform 0.3s ease;
-  transform-style: preserve-3d;
+  transform-style: ;
   ${({ flipped }) => flipped && "transform: rotateY(180deg);"}
 `;
