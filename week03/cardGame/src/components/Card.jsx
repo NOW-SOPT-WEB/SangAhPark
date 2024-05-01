@@ -95,6 +95,7 @@ const Card = () => {
         onLeavelSelect={(cardNum) => {
           const newCards = getRandomCards(cardNum);
           setCards(newCards);
+          resetGame();
         }}
       />
       {cards.map((card, index) => (
