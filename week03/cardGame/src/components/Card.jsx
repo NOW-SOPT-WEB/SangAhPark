@@ -28,10 +28,6 @@ const Card = () => {
     setCards(newCards);
   }, []);
 
-  useEffect(() => {
-    setScore(0);
-  }, [cards]);
-
   const handleCardClick = (index) => {
     if (
       selectedIndexes.length < 2 &&
