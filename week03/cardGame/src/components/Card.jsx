@@ -32,7 +32,8 @@ const Card = () => {
     if (
       selectedIndexes.length < 2 &&
       !selectedIndexes.includes(index) &&
-      !matchedIndexes.includes(index)
+      !matchedIndexes.includes(index) &&
+      !flippedIndexes.includes(index)
     ) {
       const updatedCards = cards.map((card, i) =>
         i === index ? { ...card, flipped: true } : card
@@ -59,7 +60,7 @@ const Card = () => {
             }));
             setCards(updatedCards);
             setSelectedIndexes([]);
-            setFlippedIndexes([]);
+            setFlippedIndexes([...flippedIndexes, firstIndex, secondIndex]);
           };
           flipBackCards();
         }, 1000);
@@ -69,6 +70,7 @@ const Card = () => {
         setScore(score + 1);
       }
     }
+    setFlippedIndexes([]);
   }, [selectedIndexes]);
 
   useEffect(() => {
@@ -77,13 +79,14 @@ const Card = () => {
     }
   }, [matchedIndexes, cards.length]);
 
-  const resetGame = () => {
-    const newCards = getRandomCards(5);
+  const resetGame = (cardNum) => {
+    const newCards = getRandomCards(cardNum);
     setCards(newCards);
     setSelectedIndexes([]);
     setMatchedIndexes([]);
     setShowModal(false);
     setScore(0);
+    setFlippedIndexes([]);
   };
 
   return (
@@ -93,9 +96,7 @@ const Card = () => {
 
       <SetLevels
         onLeavelSelect={(cardNum) => {
-          const newCards = getRandomCards(cardNum);
-          setCards(newCards);
-          resetGame();
+          resetGame(cardNum);
         }}
       />
       {cards.map((card, index) => (
