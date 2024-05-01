@@ -57,13 +57,13 @@ const Card = () => {
             const updatedCards = cards.map((card, index) => ({
               ...card,
               flipped:
-                matchedIndexes.includes(index) || flippedIndexes.includes(index) // 추가: 틀린 카드 다시 뒤집을 때 애니메이션 적용
+                matchedIndexes.includes(index) || flippedIndexes.includes(index)
                   ? true
                   : false,
             }));
             setCards(updatedCards);
             setSelectedIndexes([]);
-            setFlippedIndexes([]); // 추가: 틀린 카드 다시 뒤집을 때 flippedIndexes 초기화
+            setFlippedIndexes([]);
           };
           flipBackCards();
         }, 1000);
