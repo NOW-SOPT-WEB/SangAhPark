@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
 import dummyImage from "../../public/img/sanrio.jpg";
 import SuccessModal from "./SuccessModal";
-import Header from "./../pages/Header";
+import Header from "./Header";
 import Reset from "../components/Reset";
 import SetLevels from "./SetLevels";
 
