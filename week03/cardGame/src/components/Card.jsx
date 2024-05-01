@@ -21,6 +21,7 @@ const Card = () => {
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
   const [clickedIndexes, setClickedIndexes] = useState([]);
+  const [flippedIndexes, setFlippedIndexes] = useState([]);
 
   useEffect(() => {
     const newCards = getRandomCards(5);
@@ -55,10 +56,14 @@ const Card = () => {
           const flipBackCards = () => {
             const updatedCards = cards.map((card, index) => ({
               ...card,
-              flipped: matchedIndexes.includes(index) ? true : false,
+              flipped:
+                matchedIndexes.includes(index) || flippedIndexes.includes(index) // 추가: 틀린 카드 다시 뒤집을 때 애니메이션 적용
+                  ? true
+                  : false,
             }));
             setCards(updatedCards);
             setSelectedIndexes([]);
+            setFlippedIndexes([]); // 추가: 틀린 카드 다시 뒤집을 때 flippedIndexes 초기화
           };
           flipBackCards();
         }, 1000);
@@ -100,11 +105,7 @@ const Card = () => {
         <CardWrapper
           key={index}
           onClick={() => handleCardClick(index)}
-          style={{
-            transform: clickedIndexes.includes(index)
-              ? "rotateY(180deg)"
-              : "none",
-          }}
+          flipped={card.flipped || flippedIndexes.includes(index)}
         >
           <CardImg
             src={card.flipped ? card.imgSrc : dummyImage}
@@ -128,7 +129,9 @@ const CardWrapper = styled.div`
   border: solid pink 0.3rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: transform 0.5s;
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  ${({ flipped }) => flipped && "transform: rotateY(180deg);"}
 `;
 
 const CardImg = styled.img`
