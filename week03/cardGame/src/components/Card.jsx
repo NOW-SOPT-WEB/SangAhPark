@@ -4,14 +4,16 @@ import { useState, useEffect } from "react";
 import dummyImage from "../../public/img/sanrio.jpg";
 import SuccessModal from "./SuccessModal";
 import Header from "./Header";
-import Reset from "../components/Reset";
+
 import SetLevels from "./SetLevels";
 
 const getRandomCards = (cardNum) => {
   const shuffledCards = [...CARD_LIST].sort(() => Math.random() - 0.5);
   const selectedCards = shuffledCards.slice(0, cardNum);
   const doubledCards = selectedCards.concat(selectedCards);
-  return doubledCards.sort(() => Math.random() - 0.5);
+  const finalCards = doubledCards.sort(() => Math.random() - 0.5);
+
+  return finalCards;
 };
 
 const Card = () => {
@@ -80,22 +82,24 @@ const Card = () => {
   }, [matchedIndexes, cards.length]);
 
   const resetGame = (cardNum) => {
-    const newCards = getRandomCards(cardNum);
-    setCards(newCards);
     setSelectedIndexes([]);
     setMatchedIndexes([]);
-    setShowModal(false);
-    setScore(0);
     setFlippedIndexes([]);
+    setScore(0);
+    setShowModal(false);
+    const newCards = getRandomCards(cardNum);
+    setCards(newCards);
   };
 
   return (
     <>
       <Header score={score} cardNum={cards.length} />
-      <Reset resetGame={resetGame} />
 
       <SetLevels
         onLeavelSelect={(cardNum) => {
+          const newCards = getRandomCards(cardNum);
+          setCards(newCards);
+          setScore(0);
           resetGame(cardNum);
         }}
       />
@@ -112,7 +116,9 @@ const Card = () => {
           />
         </CardWrapper>
       ))}
-      {showModal && <SuccessModal resetGame={resetGame} />}
+      {showModal && (
+        <SuccessModal resetGame={resetGame} cardNum={cards.length / 2} />
+      )}
     </>
   );
 };

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+import Reset from "../components/Reset";
 
 const SetLevels = ({ onLeavelSelect }) => {
   const levels = [
@@ -32,6 +33,7 @@ const SetLevels = ({ onLeavelSelect }) => {
           </LevelButton>
         ))}
       </LevelButtons>
+      <Reset resetGame={onLeavelSelect} cardNum={cardNum} />
     </>
   );
 };

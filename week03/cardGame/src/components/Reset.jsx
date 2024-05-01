@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 
-const Reset = ({ resetGame }) => {
+const Reset = ({ resetGame, cardNum }) => {
   const theme = useTheme();
 
   const handleReset = () => {
-    resetGame();
+    resetGame(cardNum);
   };
+
   return (
     <>
       <ResetButton theme={theme} onClick={handleReset}>

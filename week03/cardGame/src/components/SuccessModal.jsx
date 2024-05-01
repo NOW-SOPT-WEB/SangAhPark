@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-const SuccessModal = ({ resetGame }) => {
+const SuccessModal = ({ resetGame, cardNum }) => {
   const handleReset = () => {
-    resetGame();
+    resetGame(cardNum);
   };
 
   return (
