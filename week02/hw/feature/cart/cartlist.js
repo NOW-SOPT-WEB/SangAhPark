@@ -1,4 +1,3 @@
-// localstorage 값 불러오기
 const storedData = localStorage.getItem("cartItem");
 
 if (storedData) {
@@ -8,7 +7,6 @@ if (storedData) {
   console.log("로컬스토리지에 데이터가 없습니다.");
 }
 
-// 테이블 생성
 function makeTable(id, img, name, price, category) {
   const itemTable = document.querySelector(".item_table");
 
@@ -18,26 +16,23 @@ function makeTable(id, img, name, price, category) {
   const itemCheckTd = document.createElement("td");
   const itemCheck = document.createElement("input");
   itemCheck.type = "checkbox";
-  itemCheck.dataset = id;
-  itemCheck.dataindex = id;
+  itemCheck.dataset.id = id;
   itemCheckTd.appendChild(itemCheck);
 
   const itemImgTd = document.createElement("td");
   const itemImg = document.createElement("img");
   itemImg.classList.add("item_img");
-  console.log(img);
   itemImg.src = img;
-  console.log(itemImg.src);
   itemImgTd.appendChild(itemImg);
 
-  const itemName = document.createElement("td");
-  itemName.textContent = name;
+  const itemNameTd = document.createElement("td");
+  itemNameTd.textContent = name;
 
-  const itemPrice = document.createElement("td");
-  itemPrice.textContent = price + "원";
+  const itemPriceTd = document.createElement("td");
+  itemPriceTd.textContent = price.toLocaleString() + "원";
 
-  const itemCategory = document.createElement("td");
-  itemCategory.textContent = category;
+  const itemCategoryTd = document.createElement("td");
+  itemCategoryTd.textContent = category;
 
   const itemButtonTd = document.createElement("td");
   const itemButton = document.createElement("button");
@@ -48,30 +43,44 @@ function makeTable(id, img, name, price, category) {
 
   itemTr.appendChild(itemCheckTd);
   itemTr.appendChild(itemImgTd);
-  itemTr.appendChild(itemName);
-  itemTr.appendChild(itemPrice);
-  itemTr.appendChild(itemCategory);
+  itemTr.appendChild(itemNameTd);
+  itemTr.appendChild(itemPriceTd);
+  itemTr.appendChild(itemCategoryTd);
   itemTr.appendChild(itemButtonTd);
 
   itemTable.appendChild(itemTr);
 
-  return itemTable;
+  return itemTr;
 }
 
-// 상품 목록을 보여주는 함수
 function showProducts(products) {
   const resultContainer = document.querySelector(".item_section .item_table");
 
   products.forEach((product) => {
-    const { id, img, name, price, category } = product;
-    const productCard = makeTable(id, img, name, price, category);
-    if (!resultContainer.contains(productCard)) {
-      resultContainer.appendChild(productCard);
-    }
+    const { id, imageUrl, name, value, category } = product;
+    makeTable(id, imageUrl, name, value, category);
   });
 }
 
-// home으로 이동
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("remove_button")) {
+    const productId = event.target.dataset.index;
+    removeProduct(productId);
+    event.target.parentElement.parentElement.remove();
+  }
+});
+
+function removeProduct(productId) {
+  const storedData = localStorage.getItem("cartItem");
+  if (storedData) {
+    const cartItemsArray = JSON.parse(storedData);
+    const updatedCartItems = cartItemsArray.filter(
+      (item) => item.id !== parseInt(productId)
+    );
+    localStorage.setItem("cartItem", JSON.stringify(updatedCartItems));
+  }
+}
+
 const homeButton = document.getElementsByName("home_button");
 
 homeButton.forEach((element) =>
