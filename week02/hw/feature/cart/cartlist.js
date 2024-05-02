@@ -25,7 +25,9 @@ function makeTable(id, img, name, price, category) {
   const itemImgTd = document.createElement("td");
   const itemImg = document.createElement("img");
   itemImg.classList.add("item_img");
+  console.log(img);
   itemImg.src = img;
+  console.log(itemImg.src);
   itemImgTd.appendChild(itemImg);
 
   const itemName = document.createElement("td");
