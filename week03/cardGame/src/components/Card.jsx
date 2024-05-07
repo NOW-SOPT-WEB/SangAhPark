@@ -81,6 +81,10 @@ const Card = () => {
     }
   }, [matchedIndexes, cards.length]);
 
+  const handleReset = () => {
+    resetGame(cards.length / 2);
+  };
+
   const resetGame = (cardNum) => {
     setSelectedIndexes([]);
     setMatchedIndexes([]);
@@ -108,9 +112,7 @@ const Card = () => {
           />
         </CardWrapper>
       ))}
-      {showModal && (
-        <SuccessModal resetGame={resetGame} cardNum={cards.length} />
-      )}
+      {showModal && <SuccessModal resetGame={handleReset} />}
     </>
   );
 };

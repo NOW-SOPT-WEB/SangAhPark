@@ -1,17 +1,12 @@
 import styled from "@emotion/styled";
-import React from "react";
 
-const SuccessModal = ({ resetGame, cardNum }) => {
-  const handleReset = () => {
-    resetGame(cardNum / 2);
-  };
-
+const SuccessModal = ({ resetGame }) => {
   return (
     <>
       <ModalWrapper>
         <ModalContent>
           <ModalTitle>😍축하합니다😍</ModalTitle>
-          <ModalButton onClick={handleReset}>Play Again</ModalButton>
+          <ModalButton onClick={resetGame}>Play Again</ModalButton>
         </ModalContent>
       </ModalWrapper>
     </>
