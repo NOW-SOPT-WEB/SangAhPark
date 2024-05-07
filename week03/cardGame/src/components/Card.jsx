@@ -33,29 +33,29 @@ const Card = () => {
       );
       setCards(updatedCards);
       setSelectedIndexes([...selectedIndexes, index]);
-      setClickedIndexes([...clickedIndexes, index]);
     }
   };
 
-  useEffect(() => {
+  const flipBackCards = (firstIndex, secondIndex) => {
+    const updatedCards = cards.map((card, index) => ({
+      ...card,
+      flipped:
+        matchedIndexes.includes(index) || flippedIndexes.includes(index)
+          ? true
+          : false,
+    }));
+    setCards(updatedCards);
+    setSelectedIndexes([]);
+    setFlippedIndexes([...flippedIndexes, firstIndex, secondIndex]);
+  };
+
+  const handleCardMatching = () => {
     if (selectedIndexes.length === 2) {
       const firstIndex = selectedIndexes[0];
       const secondIndex = selectedIndexes[1];
       if (cards[firstIndex].imgSrc !== cards[secondIndex].imgSrc) {
         setTimeout(() => {
-          const flipBackCards = () => {
-            const updatedCards = cards.map((card, index) => ({
-              ...card,
-              flipped:
-                matchedIndexes.includes(index) || flippedIndexes.includes(index)
-                  ? true
-                  : false,
-            }));
-            setCards(updatedCards);
-            setSelectedIndexes([]);
-            setFlippedIndexes([...flippedIndexes, firstIndex, secondIndex]);
-          };
-          flipBackCards();
+          flipBackCards(firstIndex, secondIndex);
         }, 1000);
       } else {
         setMatchedIndexes([...matchedIndexes, firstIndex, secondIndex]);
@@ -64,6 +64,10 @@ const Card = () => {
       }
     }
     setFlippedIndexes([]);
+  };
+
+  useEffect(() => {
+    handleCardMatching();
   }, [selectedIndexes]);
 
   useEffect(() => {
