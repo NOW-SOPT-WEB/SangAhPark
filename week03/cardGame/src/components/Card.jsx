@@ -1,11 +1,11 @@
-import { CARD_LIST } from "./../constants/cardList";
 import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
 import dummyImage from "../../public/img/sanrio.jpg";
-import SuccessModal from "./SuccessModal";
 import Header from "./Header";
 import SetLevels from "./SetLevels";
+import SuccessModal from "./SuccessModal";
 import { getRandomCards } from "./../utils/getRandomCards";
+import levels from "./../constants/levels";
 
 const Card = () => {
   const [cards, setCards] = useState([]);
@@ -17,7 +17,7 @@ const Card = () => {
   const [flippedIndexes, setFlippedIndexes] = useState([]);
 
   useEffect(() => {
-    const newCards = getRandomCards(5);
+    const newCards = getRandomCards(levels[0].cardMax);
     setCards(newCards);
   }, []);
 

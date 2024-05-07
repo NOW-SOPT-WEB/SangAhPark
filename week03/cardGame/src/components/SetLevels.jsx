@@ -1,14 +1,9 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import Reset from "../components/Reset";
+import levels from "./../constants/levels";
 
 const SetLevels = ({ onLeaveSelect }) => {
-  const levels = [
-    { level: "easy", cardMax: 5 },
-    { level: "normal", cardMax: 7 },
-    { level: "hard", cardMax: 9 },
-  ];
-
   const [selectedLevel, setSelectedLevel] = useState(levels[0].level);
   const [cardNum, setCardNum] = useState(levels[0].cardMax);
 
