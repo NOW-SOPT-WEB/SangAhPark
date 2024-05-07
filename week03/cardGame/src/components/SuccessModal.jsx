@@ -3,7 +3,7 @@ import React from "react";
 
 const SuccessModal = ({ resetGame, cardNum }) => {
   const handleReset = () => {
-    resetGame(cardNum);
+    resetGame(cardNum / 2);
   };
 
   return (

@@ -105,7 +105,7 @@ const Card = () => {
         </CardWrapper>
       ))}
       {showModal && (
-        <SuccessModal resetGame={resetGame} cardNum={cards.length / 2} />
+        <SuccessModal resetGame={resetGame} cardNum={cards.length} />
       )}
     </>
   );
