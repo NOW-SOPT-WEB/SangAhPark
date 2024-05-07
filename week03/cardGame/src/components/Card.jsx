@@ -5,15 +5,7 @@ import dummyImage from "../../public/img/sanrio.jpg";
 import SuccessModal from "./SuccessModal";
 import Header from "./Header";
 import SetLevels from "./SetLevels";
-
-const getRandomCards = (cardNum) => {
-  const shuffledCards = [...CARD_LIST].sort(() => Math.random() - 0.5);
-  const selectedCards = shuffledCards.slice(0, cardNum);
-  const doubledCards = selectedCards.concat(selectedCards);
-  const finalCards = doubledCards.sort(() => Math.random() - 0.5);
-
-  return finalCards;
-};
+import { getRandomCards } from "./../utils/getRandomCards";
 
 const Card = () => {
   const [cards, setCards] = useState([]);
