@@ -87,8 +87,6 @@ const Card = () => {
       <Header score={score} cardNum={cards.length} />
       <SetLevels
         onLeaveSelect={(cardNum) => {
-          const newCards = getRandomCards(cardNum);
-          setCards(newCards);
           setScore(0);
           resetGame(cardNum);
         }}
