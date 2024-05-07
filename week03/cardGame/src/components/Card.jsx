@@ -66,6 +66,11 @@ const Card = () => {
     setFlippedIndexes([]);
   };
 
+  const handleLeaveSelect = (cardNum) => {
+    setScore(0);
+    resetGame(cardNum);
+  };
+
   useEffect(() => {
     handleCardMatching();
   }, [selectedIndexes]);
@@ -89,12 +94,7 @@ const Card = () => {
   return (
     <>
       <Header score={score} cardNum={cards.length} />
-      <SetLevels
-        onLeaveSelect={(cardNum) => {
-          setScore(0);
-          resetGame(cardNum);
-        }}
-      />
+      <SetLevels onLeaveSelect={handleLeaveSelect} />
       {cards.map((card, index) => (
         <CardWrapper
           key={index}
