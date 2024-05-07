@@ -3,12 +3,11 @@ import styled from "@emotion/styled";
 
 function Home() {
   return (
-    <div>
-      {/*       <Header /> */}
+    <>
       <CardWrapper>
         <Card />
       </CardWrapper>
-    </div>
+    </>
   );
 }
 
