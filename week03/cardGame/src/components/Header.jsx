@@ -45,6 +45,7 @@ const Title = styled.div`
 `;
 
 const Score = styled.p`
+  text-align: center;
   font-family: DNFBitBit;
   font-size: 1.5rem;
 `;
