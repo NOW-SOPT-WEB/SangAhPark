@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import Reset from "../components/Reset";
 
-const SetLevels = ({ onLeavelSelect }) => {
+const SetLevels = ({ onLeaveSelect }) => {
   const levels = [
     { level: "easy", cardMax: 5 },
     { level: "normal", cardMax: 7 },
@@ -15,7 +15,7 @@ const SetLevels = ({ onLeavelSelect }) => {
   const handleLevelSelect = (level, cardMax) => {
     setSelectedLevel(level);
     setCardNum(cardMax);
-    onLeavelSelect(cardMax);
+    onLeaveSelect(cardMax);
   };
 
   return (
@@ -33,7 +33,7 @@ const SetLevels = ({ onLeavelSelect }) => {
           </LevelButton>
         ))}
       </LevelButtons>
-      <Reset resetGame={onLeavelSelect} cardNum={cardNum} />
+      <Reset resetGame={onLeaveSelect} cardNum={cardNum} />
     </>
   );
 };
