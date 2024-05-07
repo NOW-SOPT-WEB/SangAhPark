@@ -6,7 +6,7 @@ const Header = ({ score, cardNum }) => {
 
   return (
     <div>
-      <HeaderWrapper theme={theme}>
+      <HeaderWrapper>
         <Title>카드 맞추기</Title>
         <Score>
           {" "}
@@ -26,8 +26,8 @@ const HeaderWrapper = styled.header`
   width: 100rem;
   height: 10rem;
 
-  color: ${(props) => props.theme.colors.text};
-  background-color: ${(props) => props.theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const Title = styled.div`

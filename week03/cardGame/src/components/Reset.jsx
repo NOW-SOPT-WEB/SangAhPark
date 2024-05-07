@@ -10,9 +10,7 @@ const Reset = ({ resetGame, cardNum }) => {
 
   return (
     <>
-      <ResetButton theme={theme} onClick={handleReset}>
-        Reset
-      </ResetButton>
+      <ResetButton onClick={handleReset}>Reset</ResetButton>
     </>
   );
 };
@@ -28,10 +26,10 @@ const ResetButton = styled.button`
   top: 10%;
   right: 5%;
 
-  background-color: ${(props) => props.theme.colors.text};
-  color: ${(props) => props.theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.background};
 
-  border: 2px solid ${(props) => props.theme.colors.background};
+  border: 2px solid ${({ theme }) => theme.colors.background};
   border-radius: 5px;
 
   justify-content: center;
