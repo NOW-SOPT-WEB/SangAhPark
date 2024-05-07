@@ -1,0 +1,184 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color:rgb(255, 248, 236); ;
+}
+
+.site_header {
+    display: flex;
+    position: fixed;
+
+    width: 100%;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    background-color: rgb(73, 48, 0);
+    color: rgb(255, 248, 236);
+
+    font-size: 0.8rem;
+
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+
+    z-index: 1; 
+}
+
+.siteHeader_img{
+    width: 3.5rem;
+    height: 4rem;
+
+    margin-right: 2rem;
+}
+
+.item_section{
+    display: flex;
+
+    padding-top:8rem;
+
+    justify-content: center;
+    text-align: center;
+}
+.item_table_container{
+    max-height: 30rem;
+    overflow-y: auto;
+}
+
+.item_table{
+    width: 40rem;
+}
+
+th{
+    background-color: rgb(73, 48, 0);
+    color: rgb(255, 248, 236);
+
+    font-size: 1rem;
+}
+
+td{
+    height: 4rem;
+
+    background-color: white;
+}
+
+.item_img{
+    width: 4rem;
+    height: 4rem;
+}
+
+.remove_button{
+    width: 4rem;
+    height: 2rem;
+
+    border: 0.1rem solid beige ;
+    border-radius: 2rem;
+
+    background-color: beige;
+
+    cursor: pointer;
+}
+
+.button_section{
+    padding-top: 5rem;
+
+    text-align: center;
+}
+
+.buy_button{
+    width: 6rem;
+    height: 2rem;
+
+    font-size: 1rem;
+    border: 0.1rem solid beige ;
+    border-radius: 2rem;
+
+    background-color: rgb(255, 210, 74);
+
+    cursor: pointer;
+}
+
+.home_button{
+    width: 6rem;
+    height: 2rem;
+
+    font-size: 1rem;
+    border: 0.1rem solid beige ;
+    border-radius: 2rem;
+
+    background-color: rgb(234, 178, 99);
+
+    cursor: pointer;
+}
+
+.home_button > a{
+    text-decoration: none;
+    
+}
+
+.modal{
+    display: flex;
+    flex-wrap: wrap;
+
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+    padding-top:2rem;
+
+    width: 30rem;
+    height: 30rem;
+
+    background-color: white;    
+
+    z-index: 1;
+}
+
+.modal_product{
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.modal_close_button{
+    position:absolute;
+    left: 90%;
+
+    width: 1rem;
+
+    margin-top:1rem;
+    margin-right: 1rem;
+}
+
+.modal_img{
+    width: 8rem;
+    height: 8rem;
+}
+
+.total_price{
+    position: absolute;
+    bottom:13%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.modal_buy_button{
+    position:absolute;
+
+    bottom: 5%;
+    left:50%;
+    transform: translateX(-50%); 
+
+    width: 5rem;
+
+    text-align: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+

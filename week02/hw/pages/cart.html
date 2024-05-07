@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/cart.css"/>
+    <title>Ivoryeee's Cafe Shopping Cart</title>
+</head>
+</head>
+<body>
+    <header class="site_header">
+            <img src="/assets/img/cafe.png" class="siteHeader_img" name="home_button" alt="페이지 로고"/>
+        <h1>Ivoryeee's Cafe Shopping List</h1>
+        <img src="/assets/img/navBar.png" class="siteHeader_img" alt="햄버거바"/>
+    </header> 
+    <main>
+    <section class="modal hidden">
+        <button class="modal_close_button">X</button>
+        <div class="modal_product">  
+        </div>
+    <button class="modal_buy_button">구매하기</button>
+    </section>
+        <section class="item_section">
+        <div class="item_table_container">
+        <table class= "item_table" border="1">
+            <tr class="item_tr">
+                <th><input type="checkbox" id="selectAllCheckbox" class="checkAll"></th>
+                <th colspan="2">상품정보</th>
+                <th>상품금액 </th>
+                <th>카테고리 </th>
+                <th>비고</th>
+            </tr>
+        </table>
+        </div>
+    </section>
+    <section class="button_section">
+        <button class="buy_button">구매하기</button>
+        <button class="home_button" name="home_button">홈으로</button>
+    </section>
+    </main>
+</body>
+<script src="/feature/cart/cartlist.js"></script>
+<script src="/feature/cart/delete.js"></script>
+<script src="/feature/cart/modal.js"></script>
+<script src="/feature/cart/check.js"></script>
+
+</html>

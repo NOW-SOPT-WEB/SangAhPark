@@ -1,0 +1,45 @@
+.modal{
+    position:fixed;
+    right: 0%;
+
+    width: 10rem;
+    height: 100%;
+
+    padding: 1rem 0 0 1rem;
+
+    background-color: rgb(73, 48, 0);
+    color: rgb(255, 248, 236);
+
+    font-size: 1.4rem;
+
+    transition: right 1s ease;
+    z-index: 1; 
+}
+
+.modal.hidden {
+    right: -100%
+}
+
+#open_modal{
+    cursor: pointer;
+}
+
+#close_modal{
+    cursor: pointer;
+}
+
+.modal ul{
+    padding-top: 1rem;
+    color: rgb(255, 248, 236);
+}
+
+.modal li{
+    margin-right: 0.7rem;
+    color: rgb(255, 248, 236);
+    cursor: pointer;
+}
+.modal li:hover{
+    background-color:rgb(255, 248, 236) ;
+    color:  rgb(73, 48, 0);
+}
+
