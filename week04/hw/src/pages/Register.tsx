@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
-import LoginImage from '../assets/LoginImg.jpg';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
 import PageTitle from '../components/PageTitle';
 
-const Login = () => {
+const Register = () => {
   return (
     <>
       <PageWrapper>
-        <PageTitle title="Login" />
-        <DefaultImg src={LoginImage} />
+        <PageTitle title="Register" />
         <FormInput inputTitle="ID" id="ID를 입력해 주세요" />
         <FormInput inputTitle="PW" id="PW를 입력해 주세요" />
-        <Button buttonText="로그인" />
+        <FormInput inputTitle="닉네임" id="PW를 입력해 주세요" />
+        <FormInput inputTitle="전화번호" id="PW를 입력해 주세요" />
         <Button buttonText="회원가입" />
+        <Button buttonText="뒤로가기" />
       </PageWrapper>
     </>
   );
 };
 
-export default Login;
+export default Register;
 
 const PageWrapper = styled.div`
   text-align: center;
@@ -34,9 +34,4 @@ const PageWrapper = styled.div`
 
   width: 25rem;
   height: 40rem;
-`;
-
-const DefaultImg = styled.img`
-  width: 15rem;
-  height: 15rem;
 `;
