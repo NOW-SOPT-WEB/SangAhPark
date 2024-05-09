@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 
 const Header = ({ score, cardNum }) => {
-  const theme = useTheme();
-
   return (
     <div>
       <HeaderWrapper>

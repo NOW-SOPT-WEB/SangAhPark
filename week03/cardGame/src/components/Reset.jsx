@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 
 const Reset = ({ resetGame, cardNum }) => {
-  const theme = useTheme();
-
   const handleReset = () => {
     resetGame(cardNum);
   };
