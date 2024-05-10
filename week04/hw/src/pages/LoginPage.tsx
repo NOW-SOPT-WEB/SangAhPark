@@ -80,17 +80,16 @@ const Login = () => {
 export default Login;
 
 const PageWrapper = styled.div`
-  text-align: center;
-  justify-content: center;
   align-items: center;
-
+  justify-content: center;
+  width: 25rem;
+  height: 40rem;
   margin: 0 auto;
+
+  text-align: center;
 
   border: 5px solid #d1b2ff;
   border-radius: 15px;
-
-  width: 25rem;
-  height: 40rem;
 `;
 
 const DefaultImg = styled.img`

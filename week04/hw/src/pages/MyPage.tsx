@@ -137,9 +137,10 @@ const PwdWrapper = styled.div`
 `;
 
 const DefaultImg = styled.img`
-  padding-top: 0.7rem;
   width: 2rem;
   height: 2rem;
+  padding-top: 0.7rem;
+
   cursor: pointer;
 `;
 

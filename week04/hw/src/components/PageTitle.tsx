@@ -17,7 +17,6 @@ export default PageTitle;
 const PageTitleWrapper = styled.div`
   width: 100%;
   height: 5rem;
-
   padding: 1rem 0;
 `;
 

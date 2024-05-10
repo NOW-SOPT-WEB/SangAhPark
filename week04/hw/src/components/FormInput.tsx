@@ -55,14 +55,14 @@ const FormInputBox = styled.input<{ $isempty?: boolean }>`
   margin-right: 3rem;
   padding-left: 0;
 
-  border: 1.5px solid black;
+  border: 1.5px solid #000000;
   border-radius: 5px;
 
   ${(props) =>
     props.$isempty !== undefined &&
     props.$isempty.toString() === 'true' &&
     css`
-      border: 1.5px solid red;
+      border: 1.5px solid #ff0000;
     `}
 `;
 
@@ -70,6 +70,7 @@ const FormInputWarn = styled.p`
   position: relative;
   margin: 0 auto;
   padding-left: 3rem;
-  font-size: 0.8rem;
+
   color: #d1b2ff;
+  font-size: 0.8rem;
 `;
