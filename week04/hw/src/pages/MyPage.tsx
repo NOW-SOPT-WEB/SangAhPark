@@ -36,15 +36,26 @@ const MyPage = () => {
       newPassword: newPassword,
       newPasswordVerification: newPasswordVerification,
     };
-
-    const res = await changePwd(data, memberId);
-    if (res) {
-      if (confirm(res?.data.message)) navigate(`/main/${memberId}`);
+    if (!arePasswordsEmpty(previousPassword, newPassword, newPasswordVerification)) {
+      const res = await changePwd(data, memberId);
+      if (res) {
+        if (confirm(res?.data.message)) navigate(`/main/${memberId}`);
+      }
+    } else {
+      confirm('빈칸이 있는지 확인해 주세요');
     }
   };
 
   const handleToggleClick = () => {
-    setIsPwdChangeVisible(!isPwdChangeVisible); // 토글 상태 토글
+    setIsPwdChangeVisible(!isPwdChangeVisible);
+  };
+
+  const isInputEmpty = (value: string) => {
+    return value.trim() === '';
+  };
+
+  const arePasswordsEmpty = (previousPassword: string, newPassword: string, newPasswordVerification: string) => {
+    return isInputEmpty(previousPassword) || isInputEmpty(newPassword) || isInputEmpty(newPasswordVerification);
   };
 
   return (
@@ -71,9 +82,9 @@ const MyPage = () => {
               inputValue={newPasswordVerification}
               onChange={setNewPasswordVerification}
             />
+            <Button buttonText="변경" onClick={changeSubmit} />
           </PwdChangeInput>
         )}
-        <Button buttonText="비밀번호 변경" onClick={changeSubmit} />
         <Button buttonText="홈으로" onClick={() => navigate(`/main/${memberId}`)} />
       </PageWrapper>
     </>
