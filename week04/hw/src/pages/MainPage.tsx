@@ -1,7 +1,7 @@
+import ReactPlayer from 'react-player';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
-import MainImage from '../assets/MainImg.jpg';
 import Button from '../components/Button';
 
 const MainPage = () => {
@@ -11,7 +11,15 @@ const MainPage = () => {
   return (
     <>
       <PageWrapper>
-        <DefaultImg src={MainImage} />
+        <PlayerWrapper>
+          <ReactPlayer
+            url="https://youtu.be/Vj1_2PnP1LA?si=FfZyROC2RVolsj77"
+            width="100%"
+            playing={true}
+            loop={true}
+            volume={1}
+          />
+        </PlayerWrapper>
         <Button buttonText="내 정보" onClick={() => navigate(`/mypage/${memberId}`)} />
         <Button buttonText="회원가입" onClick={() => navigate('/register')} />
       </PageWrapper>
@@ -34,7 +42,11 @@ const PageWrapper = styled.div`
   border-radius: 15px;
 `;
 
-const DefaultImg = styled.img`
-  width: 25rem;
-  height: 25rem;
+const PlayerWrapper = styled.div`
+padding-top: 5rem;
+position: relative;
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
