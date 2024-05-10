@@ -17,9 +17,14 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleJoin = async () => {
-    if (!validatePassword(password)) {
-      alert('비밀번호를 다시 확인하세요');
+    if (!id || !nickname || !phone || !password) {
+      alert('모든 정보를 입력해 주세요');
       return;
+    } else if (!validatePassword(password)) {
+      {
+        alert('비밀번호 형식에 맞춰 입력해 주세요');
+        return;
+      }
     } else {
       const data = {
         authenticationId: id,
