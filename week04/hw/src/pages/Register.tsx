@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { joinMember } from './../apis/memberjoin';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
 import PageTitle from '../components/PageTitle';
@@ -12,6 +13,20 @@ const Register = () => {
   const [nickname, setNickname] = useState('');
   const [phone, setPhone] = useState('');
   const navigate = useNavigate();
+
+  const handleJoin = async () => {
+    const data = {
+      authenticationId: id,
+      password,
+      nickname,
+      phone,
+    };
+
+    const res = await joinMember(data);
+    if (res) {
+      if (confirm(res?.data.message)) navigate('/');
+    }
+  };
 
   return (
     <>
@@ -33,7 +48,7 @@ const Register = () => {
           placeholder="전화번호를 입력해 주세요"
         />
         <InfoTxt>전화번호 형식은 010-****-****입니다.</InfoTxt>
-        <Button buttonText="회원가입" />
+        <Button buttonText="회원가입" onClick={handleJoin} />
         <Button buttonText="뒤로가기" />
       </PageWrapper>
     </>

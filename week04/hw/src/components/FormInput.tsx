@@ -3,15 +3,21 @@ import styled from 'styled-components';
 
 type Props = {
   inputTitle: string;
-  inputLabel: string;
+  inputValue: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
 };
 
 const FormInput = (props: Props) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.onChange(e.target.value);
+  };
+
   return (
     <>
       <FormInputWrapper>
         <FormInputTitle>{props.inputTitle}</FormInputTitle>
-        <FormInputBox id={props.inputLabel} />
+        <FormInputBox value={props.inputValue} onChange={handleChange} placeholder={props.placeholder} />
       </FormInputWrapper>
     </>
   );
