@@ -5,12 +5,16 @@ import styled from 'styled-components';
 import { getInfo } from '../apis/memberinfo.ts';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
+import { changePwd } from './../apis/changePassword';
 
 const MyPage = () => {
   const navigate = useNavigate();
   const memberId = useParams().id;
 
   const [userInfo, setUserInfo] = useState(null);
+  const [previousPassword, setPreviousPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [newPasswordVerification, setNewPasswordVerification] = useState('');
 
   const handleInfo = async () => {
     const res = await getInfo(memberId);
@@ -22,6 +26,19 @@ const MyPage = () => {
   useEffect(() => {
     handleInfo();
   }, []);
+
+  const changeSubmit = async () => {
+    const data = {
+      previousPassword: previousPassword,
+      newPassword: newPassword,
+      newPasswordVerification: newPasswordVerification,
+    };
+
+    const res = await changePwd(data, memberId);
+    if (res) {
+      if (confirm(res?.data.message)) navigate(`/main/${memberId}`);
+    }
+  };
 
   return (
     <>
@@ -35,11 +52,15 @@ const MyPage = () => {
           <MyInfoContent>{userInfo ? userInfo.phone : 'PHONE'}</MyInfoContent>
         </MyInfoWrapper>
         <PWDToggle>비밀번호 변경</PWDToggle>
-        <FormInput inputTitle="기존 비밀번호" />
-        <FormInput inputTitle="새로운 비밀번호" />
-        <FormInput inputTitle="비밀번호 확인" />
-        <Button buttonText="비밀번호 변경" onClick={handleInfo} />
-        <Button buttonText="홈으로" onClick={() => navigate('/')} />
+        <FormInput inputTitle="기존 비밀번호" inputValue={previousPassword} onChange={setPreviousPassword} />
+        <FormInput inputTitle="새로운 비밀번호" inputValue={newPassword} onChange={setNewPassword} />
+        <FormInput
+          inputTitle="비밀번호 확인"
+          inputValue={newPasswordVerification}
+          onChange={setNewPasswordVerification}
+        />
+        <Button buttonText="비밀번호 변경" onClick={changeSubmit} />
+        <Button buttonText="홈으로" onClick={() => navigate(`/main/${memberId}`)} />
       </PageWrapper>
     </>
   );
