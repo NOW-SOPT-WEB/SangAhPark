@@ -1,26 +1,45 @@
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { getInfo } from '../apis/memberinfo.ts';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
 
 const MyPage = () => {
+  const navigate = useNavigate();
+  const memberId = useParams().id;
+
+  const [userInfo, setUserInfo] = useState(null);
+
+  const handleInfo = async () => {
+    const res = await getInfo(memberId);
+    if (res) {
+      setUserInfo(res.data.data);
+    }
+  };
+
+  useEffect(() => {
+    handleInfo();
+  }, []);
+
   return (
     <>
       <PageWrapper>
         <MyInfoWrapper>
           <MyInfoTitle>ID</MyInfoTitle>
-          <MyInfoContent>ID</MyInfoContent>
+          <MyInfoContent>{userInfo ? userInfo.authenticationId : 'ID'}</MyInfoContent>
           <MyInfoTitle>닉네임</MyInfoTitle>
-          <MyInfoContent>닉네임</MyInfoContent>
+          <MyInfoContent>{userInfo ? userInfo.nickname : 'NICKNAME'}</MyInfoContent>
           <MyInfoTitle>전화번호</MyInfoTitle>
-          <MyInfoContent>전화번호</MyInfoContent>
+          <MyInfoContent>{userInfo ? userInfo.phone : 'PHONE'}</MyInfoContent>
         </MyInfoWrapper>
         <PWDToggle>비밀번호 변경</PWDToggle>
         <FormInput inputTitle="기존 비밀번호" />
         <FormInput inputTitle="새로운 비밀번호" />
         <FormInput inputTitle="비밀번호 확인" />
-        <Button buttonText="비밀번호 변경" />
-        <Button buttonText="홈으로" />
+        <Button buttonText="비밀번호 변경" onClick={handleInfo} />
+        <Button buttonText="홈으로" onClick={() => navigate('/')} />
       </PageWrapper>
     </>
   );

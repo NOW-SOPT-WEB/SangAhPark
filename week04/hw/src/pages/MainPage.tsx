@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import MainImage from '../assets/MainImg.jpg';
@@ -6,12 +6,13 @@ import Button from '../components/Button';
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const memberId = useParams().id;
 
   return (
     <>
       <PageWrapper>
         <DefaultImg src={MainImage} />
-        <Button buttonText="내 정보" onClick={() => navigate('/mypage')} />
+        <Button buttonText="내 정보" onClick={() => navigate(`/mypage/${memberId}`)} />
         <Button buttonText="회원가입" onClick={() => navigate('/register')} />
       </PageWrapper>
     </>
