@@ -49,7 +49,7 @@ const Register = () => {
         />
         <InfoTxt>전화번호 형식은 010-****-****입니다.</InfoTxt>
         <Button buttonText="회원가입" onClick={handleJoin} />
-        <Button buttonText="뒤로가기" />
+        <Button buttonText="뒤로가기" onClick={() => navigate(-1)} />
       </PageWrapper>
     </>
   );
