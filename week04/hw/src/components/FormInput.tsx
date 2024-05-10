@@ -6,6 +6,7 @@ type Props = {
   inputValue: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  warnMessage: string;
 };
 
 const FormInput = (props: Props) => {
@@ -19,6 +20,7 @@ const FormInput = (props: Props) => {
         <FormInputTitle>{props.inputTitle}</FormInputTitle>
         <FormInputBox value={props.inputValue} onChange={handleChange} placeholder={props.placeholder} />
       </FormInputWrapper>
+      {props.inputValue.trim() === '' && <FormInputWarn>{props.warnMessage}</FormInputWarn>}
     </>
   );
 };
@@ -46,4 +48,12 @@ const FormInputBox = styled.input`
   height: 2rem;
   margin-right: 3rem;
   padding-left: 0;
+`;
+
+const FormInputWarn = styled.p`
+  position: relative;
+  margin: 0 auto;
+  padding-left: 3rem;
+  font-size: 0.8rem;
+  color: #d1b2ff;
 `;
