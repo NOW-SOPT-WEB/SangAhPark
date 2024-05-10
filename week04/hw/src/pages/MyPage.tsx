@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { changePwd } from './../apis/changePassword';
 import { getInfo } from '../apis/memberinfo.ts';
+import PwdToggle from '../assets/toggle.svg';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
-import { changePwd } from './../apis/changePassword';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ const MyPage = () => {
   const [previousPassword, setPreviousPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordVerification, setNewPasswordVerification] = useState('');
+
+  const [isPwdChangeVisible, setIsPwdChangeVisible] = useState(false); // 토글 상태 추가
 
   const handleInfo = async () => {
     const res = await getInfo(memberId);
@@ -40,6 +43,10 @@ const MyPage = () => {
     }
   };
 
+  const handleToggleClick = () => {
+    setIsPwdChangeVisible(!isPwdChangeVisible); // 토글 상태 토글
+  };
+
   return (
     <>
       <PageWrapper>
@@ -51,14 +58,21 @@ const MyPage = () => {
           <MyInfoTitle>전화번호</MyInfoTitle>
           <MyInfoContent>{userInfo ? userInfo.phone : 'PHONE'}</MyInfoContent>
         </MyInfoWrapper>
-        <PWDToggle>비밀번호 변경</PWDToggle>
-        <FormInput inputTitle="기존 비밀번호" inputValue={previousPassword} onChange={setPreviousPassword} />
-        <FormInput inputTitle="새로운 비밀번호" inputValue={newPassword} onChange={setNewPassword} />
-        <FormInput
-          inputTitle="비밀번호 확인"
-          inputValue={newPasswordVerification}
-          onChange={setNewPasswordVerification}
-        />
+        <PwdWrapper>
+          <PWDToggle onClick={handleToggleClick}>비밀번호 변경</PWDToggle>
+          <DefaultImg src={PwdToggle} onClick={handleToggleClick} />
+        </PwdWrapper>
+        {isPwdChangeVisible && (
+          <PwdChangeInput>
+            <FormInput inputTitle="기존 비밀번호" inputValue={previousPassword} onChange={setPreviousPassword} />
+            <FormInput inputTitle="새로운 비밀번호" inputValue={newPassword} onChange={setNewPassword} />
+            <FormInput
+              inputTitle="비밀번호 확인"
+              inputValue={newPasswordVerification}
+              onChange={setNewPasswordVerification}
+            />
+          </PwdChangeInput>
+        )}
         <Button buttonText="비밀번호 변경" onClick={changeSubmit} />
         <Button buttonText="홈으로" onClick={() => navigate(`/main/${memberId}`)} />
       </PageWrapper>
@@ -105,3 +119,17 @@ const PWDToggle = styled.p`
   font-weight: bold;
   text-align: center;
 `;
+
+const PwdWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const DefaultImg = styled.img`
+  padding-top: 0.7rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+`;
+
+const PwdChangeInput = styled.div``;
