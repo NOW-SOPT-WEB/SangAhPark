@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type Props = {
   inputTitle: string;
@@ -7,6 +7,7 @@ type Props = {
   onChange: (value: string) => void;
   placeholder?: string;
   warnMessage: string;
+  isempty?: boolean;
 };
 
 const FormInput = (props: Props) => {
@@ -18,7 +19,12 @@ const FormInput = (props: Props) => {
     <>
       <FormInputWrapper>
         <FormInputTitle>{props.inputTitle}</FormInputTitle>
-        <FormInputBox value={props.inputValue} onChange={handleChange} placeholder={props.placeholder} />
+        <FormInputBox
+          value={props.inputValue}
+          onChange={handleChange}
+          placeholder={props.placeholder}
+          $isempty={props.isempty}
+        />
       </FormInputWrapper>
       {props.inputValue.trim() === '' && <FormInputWarn>{props.warnMessage}</FormInputWarn>}
     </>
@@ -43,11 +49,21 @@ const FormInputTitle = styled.p`
   font-size: 1rem;
 `;
 
-const FormInputBox = styled.input`
+const FormInputBox = styled.input<{ $isempty?: boolean }>`
   flex: 40%;
   height: 2rem;
   margin-right: 3rem;
   padding-left: 0;
+
+  border: 1.5px solid black;
+  border-radius: 5px;
+
+  ${(props) =>
+    props.$isempty !== undefined &&
+    props.$isempty.toString() === 'true' &&
+    css`
+      border: 1.5px solid red;
+    `}
 `;
 
 const FormInputWarn = styled.p`
