@@ -34,7 +34,7 @@ const Login = () => {
         <FormInput inputTitle="PW" inputValue={password} onChange={setPassword} placeholder="PW를 입력해 주세요" />
 
         <Button buttonText="로그인" onClick={handleLogin} />
-        <Button buttonText="회원가입" />
+        <Button buttonText="회원가입" onClick={() => navigate('/register')} />
       </PageWrapper>
     </>
   );
